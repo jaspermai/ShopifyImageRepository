@@ -4,6 +4,7 @@ import Products.ProductManager;
 import Products.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerManager {
     public ProductManager productManager;
@@ -31,6 +32,18 @@ public class CustomerManager {
             this.productManager.addProduct(title, product);
             return true;
         }
+    }
+
+    public String getName() {
+        return customer.getName();
+    }
+
+    public Double getMoney() {
+        return customer.getMoney();
+    }
+
+    public List<Product> getCollection() {
+        return customer.getCollection();
     }
 
 }

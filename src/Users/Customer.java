@@ -20,5 +20,17 @@ public class Customer extends User{
         return UserType.CUSTOMER;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public Double getMoney() {
+        return this.money;
+    }
+
+    public List<Product> getCollection() {
+        return this.collection;
+    }
+
 
 }
