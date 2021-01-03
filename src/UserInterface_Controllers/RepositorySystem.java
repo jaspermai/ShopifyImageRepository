@@ -29,6 +29,7 @@ public class RepositorySystem {
     private final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private Store store;
     private UserSignUpSystem userSignUpSystem;
+    private UploadSystem uploadSystem;
     private CustomerManager currentCustomer;
 
     public RepositorySystem() {
@@ -45,6 +46,7 @@ public class RepositorySystem {
     private void init() {
         store = new Store();
         userSignUpSystem = new UserSignUpSystem();
+        uploadSystem = new UploadSystem();
     }
 
     public void start() throws IOException {
@@ -97,6 +99,7 @@ public class RepositorySystem {
 
                 switch (choice) {
                     case UPLOAD_IMAGE:
+                        uploadSystem.start(store);
                         break;
                     case VIEW_GALLERY_BUY_IMAGE:
                         break;
