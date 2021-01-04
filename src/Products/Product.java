@@ -41,7 +41,9 @@ public abstract class Product {
     public void printSummary() {
         System.out.println("\n" + ANSI_PURPLE + "Summary of the image:" + ANSI_RESET);
         System.out.println("Title: " + ANSI_CYAN + this.title + ANSI_RESET);
-        System.out.println("Price: " + ANSI_CYAN + this.price + ANSI_RESET);
+        System.out.print("Price: " + ANSI_CYAN);
+        System.out.printf("%.2f", this.price);
+        System.out.println(ANSI_RESET);
         System.out.print("Hashtags:");
         for(String hashtag: this.hashtags) {
             System.out.print(ANSI_CYAN + " #" + hashtag + ANSI_RESET);

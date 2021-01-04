@@ -31,7 +31,7 @@ public class UserSignUpSystem {
             System.out.print("Money in your account in the format XX.YY (ie. $23.25) between $0.00-$999.99:\n" +
                     "$");
             input = br.readLine();
-            validMoney = input.matches("^[0-9]{1,3}.[0-9][0-9]$");
+            validMoney = input.matches("^[0-9]{1,3}[.][0-9][0-9]$");
             if (!validMoney) {
                 System.out.println(ANSI_RED + "This is not in the format XX.YY or is not between $0.00-$999.99!\n" +
                         ANSI_RESET);

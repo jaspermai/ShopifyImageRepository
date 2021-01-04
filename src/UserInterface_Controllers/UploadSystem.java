@@ -47,7 +47,7 @@ public class UploadSystem {
             System.out.print("Price of the image in the format XX.YY (ie. $12.99) between $0.00-$999.99:\n" +
                     "$");
             input = br.readLine();
-            validPrice = input.matches("^[0-9]{1,3}.[0-9][0-9]$");
+            validPrice = input.matches("^[0-9]{1,3}[.][0-9][0-9]$");
             if (!validPrice) {
                 System.out.println(ANSI_RED + "This is not in the format XX.YY or is not between $0.00-$999.99!\n" +
                         ANSI_RESET);

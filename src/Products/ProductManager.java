@@ -29,6 +29,10 @@ public class ProductManager {
         }
     }
 
+    public int numProducts() {
+        return this.productMap.size();
+    }
+
     public void addProduct(String title, Product product) {
         this.productMap.put(title, product);
     }
@@ -67,5 +71,19 @@ public class ProductManager {
             result.add(this.productMap.get(title));
         }
         return result;
+    }
+
+    public ArrayList<String> getProductTitles() {
+        ArrayList<String> result = new ArrayList<>();
+        for(String title: this.productMap.keySet()) {
+            result.add(title);
+        }
+        return result;
+    }
+
+    public void printProductTitles() {
+        for(String title: this.productMap.keySet()) {
+            System.out.println(title + " (Price: " + productMap.get(title).getPrice() + ")");
+        }
     }
 }

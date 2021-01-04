@@ -6,31 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer extends User{
-    private String name;
-    private Double money;
-    private List<Product> collection;
+
 
     public Customer(String name, Double money) {
-        this.name = name;
-        this.money = money;
-        this.collection = new ArrayList<>();
+        super(name, money);
     }
 
     public UserType getType() {
         return UserType.CUSTOMER;
     }
 
-    public String getName() {
-        return this.name;
-    }
 
-    public Double getMoney() {
-        return this.money;
-    }
-
-    public List<Product> getCollection() {
-        return this.collection;
-    }
 
 
 }

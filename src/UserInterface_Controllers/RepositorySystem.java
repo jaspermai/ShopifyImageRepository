@@ -30,6 +30,7 @@ public class RepositorySystem {
     private Store store;
     private UserSignUpSystem userSignUpSystem;
     private UploadSystem uploadSystem;
+    private GallerySystem gallerySystem;
     private CustomerManager currentCustomer;
 
     public RepositorySystem() {
@@ -47,6 +48,7 @@ public class RepositorySystem {
         store = new Store();
         userSignUpSystem = new UserSignUpSystem();
         uploadSystem = new UploadSystem();
+        gallerySystem = new GallerySystem();
     }
 
     public void start() throws IOException {
@@ -81,8 +83,10 @@ public class RepositorySystem {
             }
 
             while(true) {
-                System.out.println(ANSI_PURPLE + "\nWelcome " + currentCustomer.getName() + ",\n" +
-                        "Your current balance is $" + currentCustomer.getMoney() + "." + ANSI_RESET);
+                System.out.print(ANSI_PURPLE + "\nWelcome " + currentCustomer.getName() + ",\n" +
+                        "Your current balance is $");
+                System.out.printf("%.2f", currentCustomer.getMoney());
+                System.out.println("." + ANSI_RESET);
 
                 options = new ArrayList<>(Arrays.asList("0", "1", "9"));
                 do {
@@ -102,6 +106,7 @@ public class RepositorySystem {
                         uploadSystem.start(store);
                         break;
                     case VIEW_GALLERY_BUY_IMAGE:
+                        gallerySystem.start(store, currentCustomer);
                         break;
                     case QUIT:
                         this.quit();

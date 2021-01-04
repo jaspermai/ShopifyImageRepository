@@ -7,13 +7,24 @@ import java.util.*;
 public abstract class User {
     private String name;
     private Double money;
+    private List<Product> collection;
+
+    public User(String name, Double money) {
+        this.name = name;
+        this.money = money;
+        this.collection = new ArrayList<>();
+    }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public Double getMoney() {
-        return money;
+        return this.money;
+    }
+
+    public List<Product> getCollection() {
+        return this.collection;
     }
 
     public boolean addMoney(Double amount) {
