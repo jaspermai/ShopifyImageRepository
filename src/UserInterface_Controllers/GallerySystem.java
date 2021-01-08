@@ -86,7 +86,7 @@ public class GallerySystem {
                     customerWriter.writeJPGToCustomerFile(product.getFilePath(),
                             customerManager.productManager.numProducts());
                     System.out.println(ANSI_CYAN + "Cheers, you have purchased " + ANSI_PURPLE + choice + ANSI_CYAN +
-                            "! The image should now be in your personal collection folder." + ANSI_RESET);
+                            "! The image should now be in your CustomerImages folder." + ANSI_RESET);
                 }
 
             }

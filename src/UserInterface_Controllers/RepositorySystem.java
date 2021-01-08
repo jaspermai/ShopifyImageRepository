@@ -21,6 +21,7 @@ public class RepositorySystem {
 
     private final String UPLOAD_IMAGE = "0";
     private final String VIEW_GALLERY_BUY_IMAGE = "1";
+    private final String VIEW_PERSONAL_COLLECTION = "2";
 
     private final String BUY_IMAGE = "0";
     private final String BACK_TO_MENU = "9";
@@ -31,6 +32,7 @@ public class RepositorySystem {
     private UserSignUpSystem userSignUpSystem;
     private UploadSystem uploadSystem;
     private GallerySystem gallerySystem;
+    private CollectionSystem collectionSystem;
     private CustomerManager currentCustomer;
 
     public RepositorySystem() {
@@ -49,6 +51,7 @@ public class RepositorySystem {
         userSignUpSystem = new UserSignUpSystem();
         uploadSystem = new UploadSystem();
         gallerySystem = new GallerySystem();
+        collectionSystem = new CollectionSystem();
     }
 
     public void start() throws IOException {
@@ -88,11 +91,12 @@ public class RepositorySystem {
                 System.out.printf("%.2f", currentCustomer.getMoney());
                 System.out.println("." + ANSI_RESET);
 
-                options = new ArrayList<>(Arrays.asList("0", "1", "9"));
+                options = new ArrayList<>(Arrays.asList("0", "1", "2", "9"));
                 do {
                     System.out.println("\nPlease choose between:\n" +
                             "0: Upload Image\n" +
                             "1: View Gallery/ Buy Image\n" +
+                            "2: View Personal Collection\n" +
                             "9: Quit");
                     choice = br.readLine();
                     menuOption = options.contains(choice);
@@ -107,6 +111,9 @@ public class RepositorySystem {
                         break;
                     case VIEW_GALLERY_BUY_IMAGE:
                         gallerySystem.start(store, currentCustomer);
+                        break;
+                    case VIEW_PERSONAL_COLLECTION:
+                        collectionSystem.start(currentCustomer);
                         break;
                     case QUIT:
                         this.quit();

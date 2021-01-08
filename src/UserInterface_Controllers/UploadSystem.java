@@ -5,6 +5,7 @@ import Products.Product;
 import Store.Store;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
@@ -75,11 +76,21 @@ public class UploadSystem {
         } while(moreHashtags);
 
         // Check for valid file path
-        System.out.println("File path for image:");
+        System.out.println("File path for image (JPG files supported):");
+        System.out.println(ANSI_CYAN + "Try one of the following:\n- src/LocalImages/shopify.jpg\n" +
+                "- src/LocalImages/penguin.jpg\n- src/LocalImages/dog.jpg\n- src/LocalImages/cat.jpg");
+
+        File potentialUpload;
+
         do {
             input = br.readLine();
             filePath = input;
-            validFilePath = true;
+            potentialUpload = new File(filePath);
+            validFilePath = potentialUpload.exists();
+            if(!validFilePath) {
+                System.out.println(ANSI_RED + "This file path does not exist. Enter a valid file path or try one of " +
+                        "the recommended file paths above!" + ANSI_RESET);
+            }
 
         } while(!validFilePath);
 

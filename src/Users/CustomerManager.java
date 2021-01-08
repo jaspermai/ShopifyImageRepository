@@ -42,8 +42,4 @@ public class CustomerManager {
         return customer.getMoney();
     }
 
-    public List<Product> getCollection() {
-        return customer.getCollection();
-    }
-
 }

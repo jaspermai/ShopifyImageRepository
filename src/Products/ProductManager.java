@@ -83,7 +83,9 @@ public class ProductManager {
 
     public void printProductTitles() {
         for(String title: this.productMap.keySet()) {
-            System.out.println(title + " (Price: " + productMap.get(title).getPrice() + ")");
+            System.out.print(title + " (Price: ");
+            System.out.printf("%.2f", productMap.get(title).getPrice());
+            System.out.println(")");
         }
     }
 }

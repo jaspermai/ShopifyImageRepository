@@ -9,7 +9,6 @@ import java.net.URL;
 
 public class Application {
     public static void main(String[] args) throws IOException {
-
         RepositorySystem repositorySystem = new RepositorySystem();
         repositorySystem.start();
 
